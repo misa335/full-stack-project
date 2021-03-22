@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    🎶iTunes🍎API🎶
   </div>
 </template>
 
@@ -14,10 +14,21 @@ export default {
   components: {
     HelloWorld
   },
+  data: () => ({
+    songs: []
+  }),
   mounted() {
-    axios.get('/api').then((res) => {
-      console.log(res.data);
-    });
+    axios.get('https://search-itunes.now.sh/?term=blackpink')
+      .then(res => {
+        console.log("res:",res);
+        console.log("data:",res.data);
+        console.log("array:", res.data.results);
+        this.songs = res.data.results;
+        console.log("songs:",this.songs);
+        return this.songs;
+      }).catch(err => {
+        console.log(err);
+      });
   }
 }
 </script>
