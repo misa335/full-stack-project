@@ -2,7 +2,7 @@
   <div id="app">
     🎶iTunes🍎API🎶
     <br>
-    <input ref="input" type="text" placeholder="Who is your favorite artist?" @change="getInfo" />
+    <input ref="input" type="text" placeholder="Find good tunes!!" @change="getInfo" />
     <button @click="search">Get Artist info😎</button>
     <button @click="getList">Favorites💕</button>
   <div>
