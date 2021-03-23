@@ -27,23 +27,6 @@ module.exports = {
             directory: __dirname + '/server/seeds',
         },
     },
-    // staging: {
-    //     client: 'pg',
-    //     connection: {
-    //         host: '127.0.0.1',
-            //     user: process.env.DB_USER,
-            //     password: process.env.DB_PW,
-            //     database: process.env.DB_NAME
-            // }
-    //     pool: {
-    //         min:2,
-    //         max:10
-    //     },
-    //     migrations: {
-    //         directory: __dirname + "/server/migrations",
-    //         tableName: 'song_list'
-    //     },
-    // },
 
     // production: {
     //     client: 'pg',

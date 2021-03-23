@@ -2,6 +2,7 @@
 <div>
     <div class="result" v-for="(info, index) in infos" v-bind:key="index">
         <a v-bind:href="info.trackViewUrl">{{info.trackName}}</a>
+        <button>🤍</button>
         <br>
         <a v-bind:href="info.previewUrl"><img class="image" v-bind:src="info.artworkUrl100"/></a>
     </div>

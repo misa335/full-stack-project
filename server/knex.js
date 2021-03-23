@@ -1,6 +1,6 @@
 require("dotenv").config();
-const config = require('../knexfile.js')[environment]
-// const knex = require("knex");
+const config = require('../knexfile.js');
+
 
 // const parse = require("pg-connection-string").parse;
 // let pgconfig = null;
@@ -10,13 +10,26 @@ const config = require('../knexfile.js')[environment]
 // }
 
 // const db = knex({
-//   client: "pg",
-//   connection:
-//     pgconfig ||
-//     `postgres://${process.env.USER}:${process.env.PASSWORD}@127.0.0.1:5432/favorites`,
+//     client: 'pg',
+//     connection: {
+//         host: '127.0.0.1',
+//         user: process.env.DB_USER,
+//         password: process.env.DB_PW,
+//         database: process.env.DB_NAME
+// }
 //   searchPath: "public",
 // });
 
+const knex = require("knex")({
+    client: 'pg',
+    connection: {
+        host: '127.0.0.1',
+        user: process.env.DB_USER,
+        password: process.env.DB_PW,
+        database: process.env.DB_NAME
+    }
+});
+
 // module.exports = db;
 
-module.exports = require('knex')(config);
+module.exports = { knex };
