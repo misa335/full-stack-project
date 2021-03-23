@@ -17,7 +17,6 @@ export default {
     name: 'Result',
     props: [
        "infos",
-       "lists",
        "trackName"
     ],
     methods: {
