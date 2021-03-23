@@ -8,7 +8,7 @@ if (process.env.DATABASE_URL) {
 }
 
 module.exports = {
-    development: {
+    // development: {
         client: 'pg',
         connection: {
             host: '127.0.0.1',
@@ -16,41 +16,41 @@ module.exports = {
             password: process.env.DB_PW,
             database: process.env.DB_NAME
         },
-        pool: {
-            min:2,
-            max:10
-        },
+        // pool: {
+        //     min:2,
+        //     max:10
+        // },
         migrations: {
             directory: __dirname + "/server/migrations",
         },
         seeds: {
             directory: __dirname + '/server/seeds',
         },
-    },
-    staging: {
-        client: 'pg',
-        connection:
-            pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
-        pool: {
-            min:2,
-            max:10
-        },
-        migrations: {
-            tableName: 'song_list',
-            directory: __dirname + "/server/migrations",
-        },
-    },
-    production: {
-        client: 'pg',
-        connection:
-            pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
-        pool: {
-            min:2,
-            max:10
-        },
-        migrations: {
-            tableName: 'song_list',
-            directory: __dirname + "/server/migrations",
-        },
-    },
+    // },
+    // staging: {
+    //     client: 'pg',
+    //     connection:
+    //         pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+    //     pool: {
+    //         min:2,
+    //         max:10
+    //     },
+    //     migrations: {
+    //         tableName: 'song_list',
+    //         directory: __dirname + "/server/migrations",
+    //     },
+    // },
+    // production: {
+    //     client: 'pg',
+    //     connection:
+    //         pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+    //     pool: {
+    //         min:2,
+    //         max:10
+    //     },
+    //     migrations: {
+    //         tableName: 'song_list',
+    //         directory: __dirname + "/server/migrations",
+    //     },
+    // },
 };
