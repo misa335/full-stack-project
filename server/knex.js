@@ -1,3 +1,4 @@
+// const knex = require('knex');
 require("dotenv").config();
 const config = require('../knexfile.js');
 
@@ -32,4 +33,4 @@ const knex = require("knex")({
 
 // module.exports = db;
 
-module.exports = { knex };
+module.exports = knex;

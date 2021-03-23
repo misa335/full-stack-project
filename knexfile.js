@@ -27,18 +27,30 @@ module.exports = {
             directory: __dirname + '/server/seeds',
         },
     },
-
-    production: {
+    staging: {
         client: 'pg',
         connection:
-            pgconfig || `postgres://${process.env.DB_USER}@127.0.0.1:5432/favorites`,
+            pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
         pool: {
             min:2,
             max:10
         },
         migrations: {
+            tableName: 'song_list',
             directory: __dirname + "/server/migrations",
-            tableName: 'song_list'
+        },
+    },
+    production: {
+        client: 'pg',
+        connection:
+            pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+        pool: {
+            min:2,
+            max:10
+        },
+        migrations: {
+            tableName: 'song_list',
+            directory: __dirname + "/server/migrations",
         },
     },
 };
