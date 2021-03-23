@@ -2,9 +2,11 @@ const express = require('express');
 const path = require('path');
 // const bodyParser = require('body-parser');
 const app = express();
-const moment = require('moment');
 const {knex} = require('./server/knex');
+const cors = require('cors');
 require('dotenv').config();
+
+app.use(cors());
 
 // app.use(express.static(__dirname + '/dist'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,7 +41,6 @@ app.post('/song', async (req, res) => {
     await knex('song_list').insert({
     artist_name: req.body.artistName,
     song_title: req.body.trackName,
-    // date: moment().format('l')
     })
     .then(() => knex.select().from('song_list'))
     .then((datas) => res.send(datas))
