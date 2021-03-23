@@ -1,12 +1,15 @@
 const express = require('express');
-// const cors = require('cors');
+// const bodyParser = require('body-parser');
 const app = express();
-
-// app.use(cors());
+require('dotenv').config();
 
 app.use(express.static(__dirname + '/dist'));
 
 const port = process.env.PORT || 4000;
+
+app.use(express.json())
+app.use(express.urlencoded)({extended:true});
+
 
 app.listen(port, () => {
     console.log("connected!!✨", port);
