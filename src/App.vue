@@ -42,10 +42,11 @@ export default {
       this.$refs.input.click();
       this.view='allSongs';
     },
-    addFavorite: async function(){
+    addFavorite: async function(e){
       const data = {artistName: "test", trackName: "test"};
       await this.$axios.post('http://localhost:4000/song', data)
         .then(res => {
+          console.log(e);
           console.log("res:",res);
           console.log("data:",res.data);
           return res.data;
