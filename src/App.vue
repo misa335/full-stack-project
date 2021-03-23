@@ -4,29 +4,35 @@
     <br>
     <input ref="input" type="text" placeholder="Who is your favorite artist?" @change="getInfo" />
     <button @click="search">Get Artist info😎</button>
-    <button @click="addFavorite">Favorites💕</button>
+    <button @click="getList">Favorites💕</button>
   <div>
-    <Result v-if="view==='allSongs'" v-bind:infos="infos" />
+    <Result v-if="view==='allSongs'" v-bind:infos="infos" v-bind:trackName="trackName" @add-list="addList"/>
+    <Favorites v-if="view==='favorite'" v-bind:lists="lists"/>
   </div>
   </div>
 </template>
 
 <script>
 import Result from './components/Result.vue';
+import Favorites from './components/Favorites.vue';
 // import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    Result
+    Result,
+    Favorites
   },
   data: () => ({
-    artistName: "",
     infos: [],
-    view: ""
+    artistName: "",
+    trackName:"",
+    view: "",
+    lists: []
   }),
   methods: {
     getInfo: async function(e) {
+      this.artistName = e.target.value;
     await this.$axios.get(`https://search-itunes.now.sh/?term=${e.target.value}`)
       .then(res => {
         console.log("res:",res);
@@ -42,18 +48,28 @@ export default {
       this.$refs.input.click();
       this.view='allSongs';
     },
-    addFavorite: async function(e){
-      const data = {artistName: "test", trackName: "test"};
+    addList: async function(track){
+      const data = {artistName: this.artistName, trackName: track};
+      console.log("data:",data);
       await this.$axios.post('http://localhost:4000/song', data)
         .then(res => {
-          console.log(e);
           console.log("res:",res);
           console.log("data:",res.data);
           return res.data;
-        })
+        });
+    },
+    getList: async function() {
+      this.view='favorite'
+      await this.$axios.get('http://localhost:4000/song')
+        .then(res => {
+          console.log("res:",res);
+          console.log("data:",res.data);
+          this.lists = res.data;
+          return res.data;
+        });
     }
   }
-}
+};
 </script>
 
 <style>
