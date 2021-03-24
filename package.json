@@ -9,7 +9,7 @@
     "server:start": "node server.js",
     "server:dev": "nodemon server.js",
     "lint": "vue-cli-service lint",
-    "start": "yarn server:start",
+    "start": "node server.js",
     "build": "yarn client:build",
     "migrate": "knex migrate:latest --knexfile ./knexfile.js",
     "makeMigrate": "knex migrate:make",
