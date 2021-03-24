@@ -58,7 +58,7 @@ app.delete('/song/:id', async (req, res) => {
 
 //Always return the main index.html, since we are developing a single page application
 app.get("*", (req, res) => {
-    res.sendFile(__dirname + "dist" + "index.html");
+    res.sendFile(path.join(__dirname, "/dist/index.html"));
   });
 
 module.exports = app;
