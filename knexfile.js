@@ -10,27 +10,30 @@ if (process.env.DATABASE_URL) {
 module.exports = {
     // development: {
         client: 'pg',
-        connection: {
-            host: '127.0.0.1',
-            user: process.env.DB_USER,
-            password: process.env.DB_PW,
-            database: process.env.DB_NAME
-        },
+        connection: process.env.DATABASE_URL || {
+            host: process.env.DATABASE_HOST || "localhost:4000",
+            port: process.env.DATABASE_PORT || "5432",
+            database: process.env.DATABASE_NAME || "favorite",
+            user: process.env.DATABASE_USER || "postgres",
+            password: process.env.DATABASE_PASSWORD || "kikilala",
+          },
         // pool: {
         //     min:2,
         //     max:10
         // },
         migrations: {
-            directory: __dirname + "/server/migrations",
+            tableName:'knex_migrations',
+            directory: './server/data/migrations',
         },
         seeds: {
-            directory: __dirname + '/server/seeds',
+            directory: './server/data/seeds',
         },
+        searchPath: 'public',
     // },
     // staging: {
     //     client: 'pg',
     //     connection:
-    //         pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+    //         pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/favorite`,
     //     pool: {
     //         min:2,
     //         max:10
@@ -43,7 +46,7 @@ module.exports = {
     // production: {
     //     client: 'pg',
     //     connection:
-    //         pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+    //         pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/favorite`,
     //     pool: {
     //         min:2,
     //         max:10
