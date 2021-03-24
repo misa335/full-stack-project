@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="result">
     <div class="result" ref="input" v-for="(info, index) in infos" v-bind:key="index">
         <div @click="addList">
         <a target="_blank" rel="noopener noreferrer" v-bind:href="info.trackViewUrl">{{info.trackName}}</a>
@@ -36,5 +36,19 @@ export default {
 </script>
 
 <style scoped>
+ #result {
+     width: 80%;
+     text-align: center;
+     margin-top: 15px;
+ }
+
+ img {
+    /* width: 100%;
+    height: 180px; */
+    /* margin: 12px; */
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin-bottom: 10px;
+ }
 
 </style>
