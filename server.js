@@ -8,7 +8,7 @@ require('dotenv').config();
 
 app.use(cors());
 
-app.use(express.static(path.resolve(__dirname,"..", "dist")));
+app.use(express.static(path.resolve(__dirname,"..", "full-stack-project" , "dist")));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -55,3 +55,10 @@ app.delete('/song/:id', async (req, res) => {
                            .then((datas) => res.send(datas))
                            .catch((err) => console.log("error:",err));
 });
+
+//Always return the main index.html, since we are developing a single page application
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "..", "dist", "full-stack-project", "index.html"));
+  });
+
+module.exports = app;
