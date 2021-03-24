@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    🎶iTunes🍎API🎶
+    🎶♡Tunes🍎API🎶
     <br>
     <input ref="input" type="text" placeholder="Find good tunes!!" @change="getInfo" />
     <button @click="search">Get Artist info😎</button>
