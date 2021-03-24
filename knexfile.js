@@ -23,10 +23,10 @@ module.exports = {
         // },
         migrations: {
             tableName:'knex_migrations',
-            directory: './server/migrations',
+            directory: __dirname + '/server/migrations',
         },
         seeds: {
-            directory: './server/seeds',
+            directory: __dirname + '/server/seeds',
         },
         searchPath: 'public',
     // },
