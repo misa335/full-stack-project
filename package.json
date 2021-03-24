@@ -11,7 +11,12 @@
     "lint": "vue-cli-service lint",
     "start": "yarn server:start",
     "build": "yarn client:build",
-    "migrate": "knex migrate:latest --knexfile ./knexfile.js"
+    "migrate": "knex migrate:latest --knexfile ./knexfile.js",
+    "makeMigrate": "knex migrate:make",
+    "rollbackMigrats": "knex migrate:rollback",
+    "runMigrate": "knex migrate:run",
+    "runSeed": "knex seed:run",
+    "makeSeed": "knex seed:make"
   },
   "dependencies": {
     "@vue/cli": "^4.5.12",
