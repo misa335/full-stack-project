@@ -8,7 +8,7 @@ require('dotenv').config();
 
 app.use(cors());
 
-// app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
