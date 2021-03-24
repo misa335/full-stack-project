@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -80,5 +80,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+input{
+  width: 80%;
+  margin: 50px auto;
+  display: flex;
+}
+
+button {
+  background-color: lightcoral;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 </style>

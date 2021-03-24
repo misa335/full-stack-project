@@ -12,11 +12,11 @@ app.use(express.static(__dirname + "/dist"));
 // app.use(express.static(path.join(__dirname + '/public')));
 
 
-const port = process.env.PORT || 4000;
 
 app.use(express.json());
 // app.use(express.urlencoded)({extended:false});
 
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log("connected!!✨", port);
 });
@@ -57,8 +57,8 @@ app.delete('/song/:id', async (req, res) => {
 });
 
 //Always return the main index.html, since we are developing a single page application
-// app.get("/", (req, res) => {
-//     res.sendFile(path.resolve(__dirname + "dist" + "index.html"));
-//   });
+app.get("*", (req, res) => {
+    res.sendFile(__dirname + "dist" + "index.html");
+  });
 
 module.exports = app;
