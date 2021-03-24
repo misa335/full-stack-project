@@ -51,7 +51,7 @@ export default {
     addList: async function(track){
       const data = {artistName: this.artistName, trackName: track};
       console.log("data:",data);
-      await this.$axios.post('http://localhost:4000/song', data)
+      await this.$axios.post('/song', data)
         .then(res => {
           console.log("res:",res);
           console.log("data:",res.data);
@@ -60,7 +60,7 @@ export default {
     },
     getList: async function() {
       this.view='favorite'
-      await this.$axios.get('http://localhost:4000/song')
+      await this.$axios.get('/song')
         .then(res => {
           console.log("res:",res);
           console.log("data:",res.data);

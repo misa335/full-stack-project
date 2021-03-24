@@ -10,7 +10,8 @@
     "server:dev": "nodemon server.js",
     "lint": "vue-cli-service lint",
     "start": "yarn server:start",
-    "build": "yarn client:build"
+    "build": "yarn client:build",
+    "migrate": "knex migrate:latest --knexfile ./knexfile.js"
   },
   "dependencies": {
     "@vue/cli": "^4.5.12",
