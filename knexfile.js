@@ -10,7 +10,7 @@ if (process.env.DATABASE_URL) {
 module.exports = {
     // development: {
         client: 'pg',
-        connection: process.env.DATABASE_URL || {
+        connection:pgconfig || {
             host: process.env.DATABASE_HOST || "127.0.0.1",
             port: process.env.DATABASE_PORT || "5432",
             database: process.env.DATABASE_NAME || process.env.DB_NAME,
@@ -20,7 +20,7 @@ module.exports = {
         // pool: {
         //     min:2,
         //     max:10
-        // },
+        // },0323032350_create
         migrations: {
             tableName:'knex_migrations',
             directory: __dirname + '/server/migrations',
